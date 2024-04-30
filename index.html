@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/071185cca3.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- ! BMI Calculator -->
+    <div id="firstDiv">
+      <div class="container">
+        <div class="kgToCmBtn">
+          <button class="kgToCm">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+        <h1>BMI Calculator</h1>
+        <form class="form1">
+          <label for="weight">Weight (in kg):</label>
+
+          <input type="number" id="weight" name="weight" />
+
+          <label for="height">Height (in cm):</label>
+
+          <input type="number" id="height" name="height" />
+        </form>
+
+        <div class="div1">
+          <button id="calculate">Calculate</button>
+          <button id="reset"><i class="fa-solid fa-rotate-right"></i></button>
+        </div>
+        <div style="margin-top: 20px">
+          Your BMI is:
+          <h3 id="calculatedBmi"></h3>
+        </div>
+      </div>
+    </div>
+    <!-- ! Kg to Cm Calculator -->
+    <div id="secondDiv">
+      <div class="container2">
+        <div class="backBtn">
+          <button class="back">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <h1>Feet To Cm</h1>
+        <form id="form2">
+          <label for="heightinfeet" id="lable2">Height (in feet):</label>
+          <div class="inputs">
+            <input type="number" id="heightinfeet" name="heightinfeet" />
+            <input type="number" id="heightinInch" name="heightinInch" />
+          </div>
+        </form>
+
+        <div class="div1">
+          <button id="calculateCm">Calculate</button>
+        </div>
+        <div style="margin-top: 20px">
+          Your Height (in cm) is:
+          <h3 id="calculatedHeight"></h3>
+        </div>
+      </div>
+    </div>
+    <script src="/FeetToCm/height.js"></script>
+    <script src="/script.js"></script>
+  </body>
+</html>
