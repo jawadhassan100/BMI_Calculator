@@ -112,7 +112,7 @@ h1{
     }
 
     .container {
-        height: 40vh;
+        height: max-content;
         width: 60vw;
     }
     h1{
