@@ -1,216 +1,90 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-*{
+* {
     padding: 0;
     margin: 0;
-    font-family: Poppins , sans-serif;
+    font-family: Poppins, sans-serif;
 }
 
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background-color: rgba(145, 34, 209, 0.164);
-    
 }
 
-.container{
+.container, .container2 {
     background-color: rgba(147, 20, 220, 0.37);
-    height: max-content ;
-    width: 22vw;
+    padding: 2rem;
     border-radius: 7px;
     box-shadow: 2px 2px 10px #00000056;
-    padding: 40px;
-}
-h1{
-    font-size: 30px;
-
-}
-
-.form1{
-    display: flex;
-    flex-direction: column;
-    margin: 15px 0;
-}
-.form1 label{
-    margin-bottom: 20px;
-   
-}
-
-.form1 input{
-    border-radius: 5px;
-    border: 1px;
-    height: 30px;
-    padding-left: 5px;
     width: 100%;
-    padding: 5px;
-    margin-bottom: 15px;
-
+    max-width: 500px;
+    margin: 1rem;
 }
 
-.div1{
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.form1 label, .form1 input, #form2 label, #form2 input {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.form1 input, #form2 input {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.div1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 92%;
-}
-
-#calculate{
-    width: 15vw;
-    padding: 8px 0;
-    border-radius: 5px;
-    border-style: none;
-    background: #bd25eb;
-    color: #000;
-    font-weight: bolder;
-    cursor: pointer;
-    font-size: 1.5vw;
-}
-
-#reset{
-    background: none;
-    border: none;
-    font-size: 1.6vw;
-    width: 0;
-    cursor: pointer;
-}
-
-#calculatedBmi{
- margin-top: 10px;
- text-align: center;
- 
-}
-
-
-.kgToCmBtn{
-    display: flex;
-    justify-content: space-between;
-    align-items:center ;
-    width: 90%;
-   
-}
-
-.kgToCm{
-    background: none;
-    border: none;
-    font-size: 1.7vw;
-    width: 0;
-    cursor: pointer;
-}
-
-/* ? media queries */
-
-@media screen and (max-width: 480px) {
-
-    .form1 label {
-        font-size: 4vw;
-       
-    }
-
-    .form1 input {
-        width: 100%;
-    }
-
-    .container {
-        height: max-content;
-        width: 60vw;
-    }
-    h1{
-        font-size: 7vw;
-    }
-    .kgToCmBtn{
-        width: 99%;
-    }
-    .kgToCm{
-        display: none;
-        font-size: 4.2vw;
-    }
-
-    .div1{
-        width: 100%;
-    }
-    #calculate{
-       width: 40vw;
-       font-size: 17px;
-    }
-    #reset{
-        font-size: 4.2vw;
-    }
-
-}
-
-/* ! feet to cm calculator */
-.container2{
-    background-color: rgba(147, 20, 220, 0.37);
-    height: 64vh;
-    width: 22vw;
-    border-radius: 7px;
-    box-shadow: 2px 2px 10px #00000056;
-    padding: 30px;
-}
-
-.backBtn{
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   width: 92%;
-}
-.back{
-    background: none;
-    border: none;
-    font-size: 1.6rem;
-    width: 0;
-    cursor: pointer
-}
-
-#form2 {
-    display: flex;
-    flex-direction: column;
-    margin: 15px 0;
-}
-
-.inputs{
-    margin-top: 15px;   
-}
-
-#form2 input {
-    border-radius: 5px;
-    border: 1px;
-    height: 40px;
-    padding-left: 5px;
-}
-
- #heightinfeet{
-    width: 50%;
-}
-
-#heightinInch{
-    width: 30%;
-}
-
-#calculateCm{
     width: 100%;
-    padding: 8px 0;
-    margin-top: 10px;
+}
+
+.button {
+    padding: 0.75rem 1.5rem;
     border-radius: 5px;
-    border-style: none;
-    background: #bd25eb;
+    border: none;
+    background-color: #bd25eb;
     color: #000;
-    font-weight: bolder;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 20px;
 }
 
-#secondDiv{
-    position: absolute;
-    display: none;
-    margin-left: 32rem;
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container, .container2 {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .button {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .div1 {
+        flex-direction: column;
+        gap: 1rem;
+    }
 }
 
-#calculatedHeight{
-    text-align: center;
-    margin-top: 30px;
-    font-size: 35px;
-}
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1rem;
+    }
 
+    .form1 label, .form1 input, #form2 label, #form2 input {
+        font-size: 0.875rem;
+    }
+}
