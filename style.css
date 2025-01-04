@@ -101,7 +101,37 @@ h1{
 
 /* ? media queries */
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 1025px) {
+    .container {
+        height: max-content;
+        width: 30vw;
+    }
+    .kgToCm{
+       display: none;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .container {
+        height: max-content;
+        width: 40vw;
+
+    }
+
+    #calculate{
+        width: 15vw;
+        padding: 8px 0;
+        border-radius: 5px;
+        border-style: none;
+        background: #bd25eb;
+        color: #000;
+        font-weight: bolder;
+        cursor: pointer;
+        font-size: 2vw;
+    }
+    
+}
+@media screen and (max-width: 425px) {
 
     .form1 label {
         font-size: 4vw;
