@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BMI Calculator</title>
+    <title>BMI & Height Converter</title>
     <link rel="stylesheet" href="style.css" />
     <script
       src="https://kit.fontawesome.com/071185cca3.js"
@@ -11,66 +11,56 @@
     ></script>
   </head>
   <body>
-    <!-- ! BMI Calculator -->
-    <div id="firstDiv">
-      <div class="container">
-        <div class="kgToCmBtn">
-          <h1>BMI Calculator</h1>
-          <button class="kgToCm">
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
-        </div>
+    <div class="wrapper">
+      <div class="tabs">
+        <button class="tab active" data-target="bmi">BMI Calculator</button>
+        <button class="tab" data-target="heightCard">Feet → Cm</button>
+      </div>
 
-        <form class="form1">
-          <label for="weight">Weight (in kg):</label>
+      <!-- BMI Calculator -->
+      <div class="card" id="bmi">
+        <h1>BMI Calculator</h1>
+        <form>
+          <label for="weight">Weight (kg):</label>
+          <input type="number" id="weight" placeholder="Enter weight" />
 
-          <input type="number" id="weight" name="weight" />
-
-          <label for="height">Height (in cm):</label>
-
-          <input type="number" id="height" name="height" />
+          <label for="height">Height (cm):</label>
+          <input type="number" id="height" placeholder="Enter height" />
         </form>
 
-        <div class="div1">
+        <div class="buttons">
           <button id="calculate">Calculate</button>
           <button id="reset"><i class="fa-solid fa-rotate-right"></i></button>
         </div>
-        <div style="margin-top: 20px">
-          <p class="h3">Your BMI is: </p>
 
-          <h3 id="calculatedBmi"></h3>
-        </div>
-      </div>
-    </div>
-    <!-- ! Kg to Cm Calculator -->
-    <div id="secondDiv">
-      <div class="container2">
-        <div class="backBtn">
-            <h1>Feet To Cm</h1>
-          <button class="back">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-        </div>
         
-        <form id="form2">
-          <label for="heightinfeet" id="lable2">Height (in feet):</label>
+        <h3 id="calculatedBmi"></h3>
+         <button id="copyBmi" class="copy-btn" title="Copy">
+    <i class="fa-solid fa-copy"></i>
+  </button>
+      </div>
+
+      <!-- Feet to Cm Calculator -->
+      <div class="card hidden" id="heightCard">
+        <h1>Feet to Cm</h1>
+        <form>
+          <label for="heightinfeet">Height (feet + inch):</label>
           <div class="inputs">
-            <input type="number" id="heightinfeet" name="heightinfeet" />
-            <input type="number" id="heightinInch" name="heightinInch" />
+            <input type="number" id="heightinfeet" placeholder="Feet" />
+            <input type="number" id="heightinInch" placeholder="Inches" />
           </div>
         </form>
 
-        <div class="div1">
-          <button id="calculateCm">Calculate</button>
-        </div>
-        <div style="margin-top: 20px">
-          Your Height (in cm) is:
-          <h3 id="calculatedHeight"></h3>
-        </div>
+        <button id="calculateCm">Calculate</button>
+
+        <p class="result-label">Your height in cm:</p>
+        <h3 id="calculatedHeight"></h3>
+         <button class="copy-btn" id="copyHeight" title="Copy">
+    <i class="fa-solid fa-copy"></i>
+  </button>
       </div>
     </div>
-    <script src="/FeetToCm/height.js"></script>
-    <script src="/script.js"></script>
+
+    <script src="script.js"></script>
   </body>
 </html>
-
