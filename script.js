@@ -3,48 +3,83 @@ const Height = document.getElementById("height");
 const Button = document.getElementById("calculate");
 const resetButton = document.getElementById("reset");
 const calculatedValue = document.getElementById("calculatedBmi");
-const mainDiv = document.getElementById("firstDiv");
-const rightArrow = document.querySelector(".kgToCm");
-const Div = document.getElementById("secondDiv");
 
-rightArrow.addEventListener("click", () => {
-  mainDiv.style.transform = "translateX(-300px)";
-  mainDiv.style.transition = "1s linear";
-  setTimeout(() => {
-    Div.style.display = "block";
-  }, 1000);
-  
+const heightFeet = document.getElementById("heightinfeet");
+const heightInch = document.getElementById("heightinInch");
+const calculateCmBtn = document.getElementById("calculateCm");
+const calculatedHeight = document.getElementById("calculatedHeight");
 
+// Tabs
+const tabs = document.querySelectorAll(".tab");
+const cards = document.querySelectorAll(".card");
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    tabs.forEach(t => t.classList.remove("active"));
+    cards.forEach(c => c.classList.add("hidden"));
+    tab.classList.add("active");
+    document.getElementById(tab.dataset.target).classList.remove("hidden");
+  });
 });
 
+// Reset BMI
 resetButton.addEventListener("click", () => {
   Weight.value = "";
   Height.value = "";
   calculatedValue.innerText = "";
+  heightFeet.value = "";
+  heightInch.value = "";
+  calculatedHeight.innerText = "";
 });
 
-Button.addEventListener("click", userBMI);
-
-function userBMI(e) {
+// BMI Calc
+Button.addEventListener("click", (e) => {
   e.preventDefault();
   const userWeight = parseFloat(Weight.value);
   const userHeight = parseFloat(Height.value);
-  if (Weight.value === "" || Height.value === "") {
-    alert("Input feilds can not be empty!");
-    calculatedValue.innerText = "";
+  if (!userWeight || !userHeight) {
+    alert("Input fields cannot be empty!");
+    return;
   }
   const BMI = (userWeight / (userHeight * userHeight)) * 10000;
   const finalBMI = BMI.toFixed(1);
-  console.log(finalBMI);
 
   if (finalBMI < 18.5) {
-    calculatedValue.innerText = `Under weight : ${finalBMI}`;
-  } else if (finalBMI >= 18.5 && finalBMI < 24.9) {
-    calculatedValue.innerText = `Normal weight : ${finalBMI}`;
-  } else if (finalBMI >= 24.9 && finalBMI < 29.9) {
-    calculatedValue.innerText = `Over weight : ${finalBMI}`;
-  } else if (finalBMI >= 30) {
-    calculatedValue.innerText = `Obese : ${finalBMI}`;
+    calculatedValue.innerText = `Underweight: ${finalBMI}`;
+  } else if (finalBMI < 24.9) {
+    calculatedValue.innerText = `Normal: ${finalBMI}`;
+  } else if (finalBMI < 29.9) {
+    calculatedValue.innerText = `Overweight: ${finalBMI}`;
+  } else {
+    calculatedValue.innerText = `Obese: ${finalBMI}`;
   }
-}
-userBMI();
+});
+
+
+
+// Feet to Cm Calc
+calculateCmBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  const feet = parseFloat(heightFeet.value) || 0;
+  const inch = parseFloat(heightInch.value) || 0;
+  if (!feet && !inch) {
+    alert("Please enter height in feet and/or inches");
+    return;
+  }
+  const cm = (feet * 30.48) + (inch * 2.54);
+  calculatedHeight.innerText = `${Math.round(cm)} cm`;  // 👈 no decimals
+});
+
+// Copy Results
+document.getElementById("copyBmi").addEventListener("click", () => {
+  if (calculatedValue.innerText) {
+    navigator.clipboard.writeText(calculatedValue.innerText);
+    alert("BMI copied!");
+  }
+});
+
+document.getElementById("copyHeight").addEventListener("click", () => {
+  if (calculatedHeight.innerText) {
+    navigator.clipboard.writeText(calculatedHeight.innerText);
+    alert("Height copied!");
+  }
+});
